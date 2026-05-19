@@ -2,7 +2,7 @@
 
 This project performs codon-level functional annotation of somatic variants in the TP53 gene using sequence translation and comparative protein analysis.
 
-Single-nucleotide variants (SNVs) are classified as synonymous, missense, or nonsense mutations based on codon-level changes in the translated protein sequence. The workflow also performs longest common subsequence (LCS) analysis between wild-type and mutated protein sequences to estimate sequence-level functional disruption.
+Single-nucleotide variants (SNVs) are classified as synonymous, missense, or nonsense mutations based on codon-level changes in the translated protein sequence. The workflow also performs longest common subsequence (LCS) analysis between wild-type and mutated protein sequences to compare sequence-level similarity.
 
 ## Workflow Overview
 
