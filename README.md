@@ -1,27 +1,69 @@
 # TP53 Codon-Level Functional Annotation of Somatic Variants
-This project annotates the effects of somatic mutations in the TP53 gene using codon-level translation and sequence comparison. Each variant is functionally classified as synonymous, missense, or nonsense. The output also includes a longest common subsequence (LCS) comparison between the wild-type and mutated protein sequences to estimate functional disruption.
 
-## Description
-- The script downloads the standard TP53 coding sequence from Ensembl using its transcript ID.
-- It parses a list of SNVs from a tab-separated input file (variants.tsv).
-- Each variant is checked for a reference match and mapped to its corresponding codon.
-- A longest common subsequence (LCS) is calculated between the wild-type and mutated proteins.
-- The final output summarizes all annotations in a .tsv file.
+This project performs codon-level functional annotation of somatic variants in the TP53 gene using sequence translation and comparative protein analysis.
 
-## File Input
-- variants.tsv - A tab-separated file listing the position, reference base, and alternate base for each mutation to be analyzed.
-- tp53_cds.fasta — The TP53 coding sequence used to identify affected codons. This file is automatically downloaded from Ensembl using the standard transcript (ENST00000269305), which is commonly used in bioinformatics analyses and literature.
+Single-nucleotide variants (SNVs) are classified as synonymous, missense, or nonsense mutations based on codon-level changes in the translated protein sequence. The workflow also performs longest common subsequence (LCS) analysis between wild-type and mutated protein sequences to estimate sequence-level functional disruption.
 
-## File Output
-- tp53_cds.fasta – the downloaded TP53 coding sequence
-- variant_annotation_results.tsv – tab-separated summary of mutation effects
-- LCS summary – printed to terminal showing percent similarity between WT and mutated protein
+## Workflow Overview
 
+The workflow performs the following steps:
 
-## How to Run
-1. Ensure Python 3 is installed.
-2. Install dependencies:
-   pip install requests
-3. Prepare a variants file (see variants_example.tsv).
-4. Run:
-   python tp53_variant_annotation.py
+1. Download the canonical TP53 coding sequence from Ensembl
+2. Parse somatic variants from a tab-separated input file
+3. Validate reference nucleotide matches
+4. Map variants to affected codons
+5. Translate mutated coding sequences into protein sequences
+6. Classify variants as synonymous, missense, or nonsense mutations
+7. Compute longest common subsequence (LCS) similarity between wild-type and mutated proteins
+8. Export annotated variant results to a tab-separated output file
+
+## Input Files
+
+### `variants.tsv`
+
+Tab-separated file containing:
+
+- Variant position
+- Reference nucleotide
+- Alternate nucleotide
+
+### `tp53_cds.fasta`
+
+Canonical TP53 coding sequence downloaded automatically from Ensembl using transcript:
+
+`ENST00000269305`
+
+## Output Files
+
+### `variant_annotation_results.tsv`
+
+Tab-separated summary of:
+
+- Codon changes
+- Amino acid changes
+- Functional mutation classification
+- Protein similarity metrics
+
+### LCS Summary
+
+Terminal output displaying longest common subsequence similarity between wild-type and mutated protein sequences.
+
+## Tools and Technologies
+
+- Python
+- Ensembl REST API
+- Sequence translation logic
+- Longest Common Subsequence (LCS) analysis
+
+## Biological Relevance
+
+TP53 is one of the most commonly mutated tumor suppressor genes in human cancer. This workflow demonstrates foundational concepts in computational cancer genomics, including codon-level variant interpretation, protein consequence analysis, and sequence-based functional annotation.
+
+## Usage
+
+Ensure Python 3 is installed.
+
+Install required dependency:
+
+```bash
+pip install requests
