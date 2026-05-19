@@ -12,14 +12,14 @@ def fetch_tp53cds():
 print("TP53 CDS saved to the tp53_cds.fasta")
 fetch_tp53cds()
 
-# Load FASTA file
+# Load TP53 coding sequence from FASTA
 fasta_path = "tp53_cds.fasta"
 sequence = ''
 with open(fasta_path, 'r') as f:
     for line in f:
         if not line.startswith('>'):
             sequence += line.strip().upper()
-print(" Loaded TP53 CDS:")
+print("Loaded TP53 CDS:")
 print(sequence[:60] + "...")
 print(f"Total length: {len(sequence)} bp")
 
